@@ -1,0 +1,50 @@
+<br>
+<div class="row center">
+    <span ng-click="niveauSelected('L1')" class="btn-floating btn-large waves-effect waves-light red black-text lighten-5">L1</span>
+    <span ng-click="niveauSelected('L2')" class="btn-floating btn-large waves-effect waves-light red black-text lighten-4">L2</span>
+    <span ng-click="niveauSelected('L3')" class="btn-floating btn-large waves-effect waves-light red black-text lighten-3">L3</span>
+    <span ng-click="niveauSelected('M1')" class="btn-floating btn-large waves-effect waves-light red black-text lighten-2">M1</span>
+    <span ng-click="niveauSelected('M2')" class="btn-floating btn-large waves-effect waves-light red black-text lighten-1">M2</span>
+    <span ng-click="niveauSelected('')" class="btn-floating btn-large waves-effect waves-light black red-text">ALL</span>
+</div>
+<div class="row">
+    <div class="col s12" style="padding: 2%">
+        <button ng-click="ajouterClasse()" class="btn small waves-effect waves-light blue right">
+            <i class="material-icons">add</i>
+        </button>
+    </div>
+    <div class="row" ng-show="afficherAjoutClasse">
+        <form class="col s12 center">
+            <div class="row">
+                <div class="input-field col s4 offset-s4">
+                    <input placeholder="Code Classe" ng-keydown="valider()" ng-model="codeClasse" id="codeClase" type="text" class="validate red-text">
+                </div>
+            </div>
+            <span class="grey-text">Entrer le code de la classe puis valier par la touche
+                <code class="red white-text">Entrer</code> du clavier.</span>
+            <p class="{{errorFormat}}">Respectez le format. Exemple: L1-BTS, M1-GL</p>
+        </form>
+    </div>
+    <ul class="collection">
+        <li class="collection-item avatar" ng-repeat="classe in classes | filter:filtre">
+            <a href="#/classe/{{classe.codeClasse}}/listEtu">
+                <i class="material-icons circle {{classe.couleur}}">group</i>
+                <span class="title"> {{classe.codeClasse}} </span>
+                
+            </a>
+            <p>First Line
+                <br> Second Line
+            </p>
+            <span href="#" class="secondary-content">
+                    <a href="#classe/edit/{{classe.codeClasse}}" ng-click="editClasse()">
+                        <i class="material-icons orange-text">edit</i>
+                    </a>
+                    &nbsp;
+                    <a href="" ng-click="deleteClasse(classe.codeClasse)">
+                        <i class="material-icons red-text" data-position="bottom">remove_circle</i>
+                    </a>
+                </span>
+        </li>
+
+    </ul>
+</div>

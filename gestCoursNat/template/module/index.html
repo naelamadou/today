@@ -1,0 +1,38 @@
+<ul class="collection with-header">
+    <li class="collection-header grey darken-1" style="color: red;">
+        <h4>Liste des Modules
+            <a href="" ng-click="ajoutModule()" class="right no-link">
+                <i class="small material-icons blue-text white">create_new_folder</i>
+            </a>
+        </h4>
+    </li>
+    <li ng-show="addModule" class="collection-item red-text" style="background-image: linear-gradient(lightgrey, white);">
+        <div class="row">
+            <form class="col s12 center">
+                <div class="row">
+                    <div class="input-field col s4 offset-s4">
+                        <input 
+                        ng-keyup="valider()" 
+                        ng-model="nomModule"
+                        id="nomModule" type="text" class="validate red-text">
+                        <label for="nomModule" class="red-text">Nom du module</label>
+                    </div>
+                </div>
+                <span class="grey-text">Entrer le nom du module puis valier par la touche
+                    <code class="red white-text">Entrer</code> du clavier.</span>
+            </form>
+        </div>
+    </li>
+    <li ng-repeat="module in modules" class="collection-item red-text">
+        <div>
+            <a
+            class="no-link" 
+            href="#/module/{{module.nom}}/cours">{{module.nom}}</a>
+            <span href="#!" class="secondary-content">
+                <a href="#/modifier/{{module.nom}}"><i class="material-icons orange-text">edit</i></a>
+                &nbsp;
+                <a href="" ng-click="supprimerModule(module.nom)"><i class="material-icons red-text tooltipped" data-position="bottom" data-tooltip="I am a tooltip">remove_circle</i></a>
+            </span>
+        </div>
+    </li>
+</ul>

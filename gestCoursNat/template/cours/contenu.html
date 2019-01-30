@@ -1,0 +1,174 @@
+<a href="#/module/{{chapitre.nom}}/cours" class="flow-text no-link text-rouge">
+    <i class="material-icons" style="margin-top: 10px">book</i> {{chapitre.nom}}
+</a>
+
+
+<h4 style="padding: 0.5%" class="center text-accent-1 grey-text z-depth-5">
+    <i class="material-icons">local_library</i> {{chapitre.titre}} <span style="font-size: 12px"> {{chapitre.niveau}} - Chap {{chapitre.ordre}}</span></h4>
+<br>
+<input id="entetePdf" type="hidden" value="ANAL - Learning - {{chapitre.nom}} : {{chapitre.titre}}">
+
+<div class="row center">
+    <table>
+        <tr>
+            <td>
+                <button class="btn tooltipped waves-effect waves-ligth white red-text" data-position="top" data-tooltip="Gras" onclick="execCmd('bold');">
+                    <i class="tiny material-icons">format_bold</i>
+                </button>
+            </td>
+            <td>
+                <button class="btn tooltipped waves-effect waves-ligth white red-text" data-position="top" data-tooltip="italique" onclick="execCmd('italic');">
+                    <i class="material-icons">format_italic</i>
+                </button>
+            </td>
+            <td>
+                <button class="btn tooltipped waves-effect waves-ligth white red-text" data-position="top" data-tooltip="Souligé" onclick="execCmd('underline');">
+                    <i class="material-icons">format_underlined</i>
+                </button>
+            </td>
+            <td>
+                <button class="btn tooltipped waves-effect waves-ligth white red-text" data-position="top" data-tooltip="Barré" onclick="execCmd('strikeThrough');">
+                    <i class="material-icons">format_strikethrough</i>
+                </button>
+            </td>
+            <td>
+                <button class="btn tooltipped waves-effect waves-ligth white red-text" data-position="top" data-tooltip="Aligner à gauche" onclick="execCmd('justifyLeft');">
+                    <i class="material-icons">format_align_left</i>
+                </button>
+            </td>
+            <td>
+                <button class="btn tooltipped waves-effect waves-ligth white red-text" data-position="top" data-tooltip="Centrer" onclick="execCmd('justifyCenter');">
+                    <i class="material-icons">format_align_center</i>
+                </button>
+            </td>
+            <td>
+                <button class="btn tooltipped waves-effect waves-ligth white red-text" data-position="top" data-tooltip="Aligner à droite" onclick="execCmd('justifyRight');">
+                    <i class="material-icons">format_align_right</i>
+                </button>
+            </td>
+            <td>
+                <button class="btn tooltipped waves-effect waves-ligth white red-text" data-position="top" data-tooltip="Justifier" onclick="execCmd('justifyFull');">
+                    <i class="material-icons">format_align_justify</i>
+                </button>
+            </td>
+            <td>
+                <button class="btn tooltipped waves-effect waves-ligth white red-text" data-position="top" data-tooltip="Augmenter le retrait" onclick="execCmd('indent');">
+                    <i class="material-icons">format_indent_increase</i>
+                </button>
+            </td>
+            <td>
+                <button class="btn tooltipped waves-effect waves-ligth white red-text" data-position="top" data-tooltip="Diminuer le retrait" onclick="execCmd('outdent');">
+                    <i class="material-icons">format_indent_decrease</i>
+                </button>
+            </td>
+
+
+        </tr>
+
+        <tr>
+
+            <td>
+                <button class="btn tooltipped waves-effect waves-ligth white red-text" data-position="bottom" data-tooltip="Couper" onclick="execCmd('cut');">
+                    <i class="material-icons">content_cut</i>
+                </button>
+            </td>
+            <td>
+                <button class="btn tooltipped waves-effect waves-ligth white red-text" data-position="bottom" data-tooltip="Copier" onclick="execCmd('copy');">
+                    <i class="material-icons">content_copy</i>
+                </button>
+            </td>
+            <td>
+                <button class="btn tooltipped waves-effect waves-ligth white red-text" data-position="bottom" data-tooltip="Coller" onclick="execCmd('paste');">
+                    <i class="material-icons">content_paste</i>
+                </button>
+            </td>
+            <td>
+                <button class="btn tooltipped waves-effect waves-ligth white red-text" data-position="bottom" data-tooltip="Ligne horizontale" onclick="execCmd('insertHorizontalRule');">
+                    <i class="material-icons">remove</i>
+                </button>
+            </td>
+            <td>
+                <button class="btn tooltipped waves-effect waves-ligth white red-text" data-position="bottom" data-tooltip="Annuler frappe" onclick="execCmd('undo');">
+                    <i class="material-icons">undo</i>
+                </button>
+            </td>
+            <td>
+                <button class="btn tooltipped waves-effect waves-ligth white red-text" data-position="bottom" data-tooltip="rétablir frappe" onclick="execCmd('redo');">
+                    <i class="material-icons">redo</i>
+                </button>
+            </td>
+            <td>
+                <button class="btn tooltipped waves-effect waves-ligth white red-text" data-position="bottom" data-tooltip="Puces" onclick="execCmd('insertUnorderedList');">
+                    <i class="material-icons">format_list_bulleted</i>
+                </button>
+            </td>
+            <td>
+                <button class="btn tooltipped waves-effect waves-ligth white red-text" data-position="bottom" data-tooltip="Numérotation" onclick="execCmd('insertOrderedList');">
+                    <i class="material-icons">format_list_numbered</i>
+                </button>
+            </td>
+            <td>
+                <button class="btn tooltipped waves-effect waves-ligth white red-text" data-position="bottom" data-tooltip="Code source" onclick="toggleSource();">
+                    <i class="material-icons">code</i>
+                </button>
+            </td>
+            <td>
+                <button id="btnEdit" class="btn tooltipped waves-effect waves-ligth red" data-position="bottom" data-tooltip="Mode edition" isInEditMode="false" onclick="toggleEdit();">
+                    <i class="material-icons">mode_edit</i>
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="row red-text">
+    <div class="input-field col s4 red-text">
+        <br>
+        <span style="font-size: 12px">Couleur du text:</span>
+        <input type="color" onchange="execCommandWithArg('foreColor', this.value);" />
+        <span style="font-size: 12px">Couleur de fond:</span>
+        <input type="color" onchange="execCommandWithArg('hiliteColor', this.value);" />
+    </div>
+
+    <div class="input-field col">
+        <select onchange="execCommandWithArg('fontName', this.value);">
+            <option value="" disabled selected>Police</option>
+            <option value="Arial">Arial</option>
+            <option value="Comic Sans MS">Comic Sans MS</option>
+            <option value="Courier">Courier</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Tahoma">Tahoma</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Verdana">Verdana</option>
+        </select>
+    </div>
+    <div class="input-field col s2">
+        <select onchange="execCommandWithArg('formatBlock', this.value);">
+            <option value="" disabled selected>Titre</option>
+            <option value="H1">H1</option>
+            <option value="H2">H2</option>
+            <option value="H3">H3</option>
+            <option value="H4">H4</option>
+            <option value="H5">H5</option>
+            <option value="H6">H6</option>
+        </select>
+    </div>
+    <div class="input-field col s2">
+        <select onchange="execCommandWithArg('fontSize', this.value);">
+            <option value="" disabled selected>Taille</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+        </select>
+    </div>
+</div>
+
+
+<iframe id="iframeId" name="richTextField" style="width: 100%; height: 500px;"></iframe>
+
+<button style="margin-left: 10px" ng-click="enregistrer()" id="btnSave" class="btn tooltipped waves-effect waves-light green right disabled" data-position="top" data-tooltip="Enregistrer"><i class="material-icons">save</i></button>
+<button onclick="imprimer()" class="btn tooltipped waves-effect waves-light right blue" data-position="top" data-tooltip="Imprimer"><i class="material-icons">print</i></button>&nbsp;&nbsp;

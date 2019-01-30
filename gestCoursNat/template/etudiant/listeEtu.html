@@ -1,0 +1,289 @@
+<!-- ng-click="transfert(etu.idEtu)" -->
+
+<!-- Modal Structure  ng-repeat="cl in classeSauf"-->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h4>Transfert d'etudiant</h4>
+        <div class="input-field col s12">
+            <select class="browser-default" ng-model="newClasse" ng-options="classe.idClasse as classe.codeClasse for classe in classeSauf"></select>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-close waves-effect waves-green btn-flat" ng-click="transfert()">Transférer</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal bonus -->
+<div id="modalManus" class="modal">
+    <div class="modal-content">
+        <div class="row">
+            <table border="0" style="margin: 0; padding: 0">
+                <tr>
+                    <td width="50%">
+                        <h4 class="green-text">Manus</h4>
+                        <p>Choisir le nombre de points:</p>
+                        <p>
+                            <span class="btn-floating waves-effect waves-light green black-text lighten-5" ng-click="y='-0.5'">
+                                <span class="flow-text center" style="padding: 1%">-0.5</span>
+                            </span>
+                            <span class="btn-floating waves-effect waves-light green black-text lighten-4" ng-click="y='-1'">
+                                <span class="flow-text center" style="padding: 30%">-1</span>
+                            </span>
+                            <span class="btn-floating waves-effect waves-light green black-text lighten-3" ng-click="y='-2'">
+                                <span class="flow-text center" style="padding: 30%">-2</span>
+                            </span>
+                            <span class="btn-floating waves-effect waves-light green black-text lighten-2" ng-click="y='-5'">
+                                <span class="flow-text center" style="padding: 30%">-5</span>
+                            </span>
+                            <span class="btn-floating waves-effect waves-light green black-text lighten-1" ng-click="y='-10'">
+                                <span class="flow-text center" style="padding: 10%">-10</span>
+                            </span>
+                        </p>
+                        Choisir l'evaluation:
+                        <br>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <select class="browser-default" ng-model="eval" ng-options="evaluation as evaluation for evaluation in evaluations"></select>
+                            </div>
+                        </div>
+                        Choisir le semestre:
+                        <br>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <select class="browser-default" ng-model="sem" ng-options="semestre as semestre for semestre in semestres"></select>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="center green-text">
+                        <span style="font-size: 800%">{{y}}</span>
+                        <br>
+                        <span ng-show="eval=='DEVOIR'" style="font-size: 150%">POUR LE {{eval}}</span>
+                        <span ng-show="eval=='EXAMEN'" style="font-size: 150%">POUR L'{{eval}}</span>
+                        <br>
+                        <span ng-show="sem" style="font-size: 150%">DU {{sem}}</span>
+                    </td>
+                    <tr>
+                        <td colspan="2">
+                            <span class="modal-close waves-effect waves-light green btn right" ng-click="manus(idBonus,y,eval,sem)">Appliquer</span>
+                        </td>
+                    </tr>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal bonus -->
+<div id="modalBonus" class="modal">
+    <div class="modal-content">
+        <div class="row">
+            <table border="0" style="margin: 0; padding: 0">
+                <tr>
+                    <td width="50%">
+                        <h4 class="green-text">Bonus</h4>
+                        <p>Choisir le nombre de points:</p>
+                        <p>
+                            <span class="btn-floating waves-effect waves-light green black-text lighten-5" ng-click="x='+0.5'">
+                                <span class="flow-text center" style="padding: 8%">0.5</span>
+                            </span>
+                            <span class="btn-floating waves-effect waves-light green black-text lighten-4" ng-click="x='+1'">
+                                <span class="flow-text center" style="padding: 30%">1</span>
+                            </span>
+                            <span class="btn-floating waves-effect waves-light green black-text lighten-3" ng-click="x='+2'">
+                                <span class="flow-text center" style="padding: 30%">2</span>
+                            </span>
+                            <span class="btn-floating waves-effect waves-light green black-text lighten-2" ng-click="x='+5'">
+                                <span class="flow-text center" style="padding: 30%">5</span>
+                            </span>
+                            <span class="btn-floating waves-effect waves-light green black-text lighten-1" ng-click="x='+10'">
+                                <span class="flow-text center" style="padding: 15%">10</span>
+                            </span>
+                        </p>
+                        Choisir l'evaluation:
+                        <br>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <select class="browser-default" ng-model="eval" ng-options="evaluation as evaluation for evaluation in evaluations"></select>
+                            </div>
+                        </div>
+                        Choisir le semestre:
+                        <br>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <select class="browser-default" ng-model="sem" ng-options="semestre as semestre for semestre in semestres"></select>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="center green-text">
+                        <span style="font-size: 800%">{{x}}</span>
+                        <br>
+                        <span ng-show="eval=='DEVOIR'" style="font-size: 150%">POUR LE {{eval}}</span>
+                        <span ng-show="eval=='EXAMEN'" style="font-size: 150%">POUR L'{{eval}}</span>
+                        <br>
+                        <span ng-show="sem" style="font-size: 150%">DU {{sem}}</span>
+                    </td>
+                    <tr>
+                        <td colspan="2">
+                            <span class="modal-close waves-effect waves-light green btn right" ng-click="bonus(idBonus,x,eval,sem)">Appliquer</span>
+                        </td>
+                    </tr>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Modal Ajout module -->
+<div id="modalAjoutModule" class="modal">
+    <div class="modal-content">
+        <form action="#">
+            <h4>AJOUTR DE MODULE</h4>
+            <p>Choisir les module à ajouter dans cette classe</p>
+
+            <div class="row">
+                <span class="col s4" ng-repeat="m in autreModlesByClasse">
+                    <label>
+                      <input ng-model="check" type="checkbox" ng-change="ajouterModule(m.idModule,check)"/>
+     
+                      <span> {{m.nom}}</span>
+                    </label>
+                  </span>
+            </div>
+           <div>
+               <a href="" class="modal-close btn waves-effect waves-light green right" ng-click="ajoutClasseModule()">Ajouter</a>
+           </div>
+           <br>
+          </form>
+    </div>
+
+</div>
+
+<!-- listes des modules -->
+
+<div class="center">
+    <div ng-repeat="module in modulesByClasse" style="display: inline-block; margin-top: 3%">
+        <a href="#/classe/{{codeClasse}}/listeEtu/{{module.nom}}">  <div class="chip tooltipped waves-effect waves-ligth red lighten-2"  data-position="top" data-tooltip="Gras">{{module.nom}} </div> </a>
+    </div>
+    <a href="#modalAjoutModule" class="no-link modal-trigger"><i class="material-icons green-text">add_circle_outline</i></a>
+</div>
+   
+
+<div class="row" style="padding: 2% 0 1% 0">
+    <div class="col s4 offset-s4">
+        <input type="text" placeholder="Recherche dans la classe actuelle" ng-model="saisie">
+    </div>
+</div>
+
+<a id="editEtudiant"></a>
+<ul class="collection with-header">
+    <li class="collection-header grey">
+        <h5>Liste des Etudiants de la Classe {{codeClasse}}
+            <a href="" ng-click="ajoutEtudiant()" class="right no-link">
+                <i class="material-icons blue-text white">create_new_folder</i>
+            </a>
+        </h5>
+    </li>
+
+    <li ng-show="addEtudiant" class="collection-item red-text" style="background-image: linear-gradient(grey,white);">
+        <div class="row">
+            <form class="col s12 center">
+                <div class="row">
+                    <div class="input-field col s3 offset-s1">
+                        <input ng-change="modifCss=''" class="center" ng-model="etudiant.nom" ng-keyup="saisieNom()" id="nomEtudiant" type="text" class="validate red-text">
+                        <label for="nomEtudiant" class="red-text">Nom</label>
+                        <span ng-show="champOblig" class="red black-text" style="font-size: 80%">champs obligatoire!</span>
+                    </div>
+                    <div class="input-field col s3">
+                        <input ng-change="modifCss=''" class="center" ng-model="etudiant.prenom" ng-keyup="saisiePrenom()" id="prenomEtudiant" type="text" class="validate red-text">
+                        <label for="prenomEtudiant" class="red-text">Prénom</label>
+                        <span ng-show="champOblig" class="red black-text" style="font-size: 80%">champs obligatoire!</span>
+                    </div>
+                    <div class="input-field col s3">
+                        <div class="switch">
+                            <label class="red-text">
+                                Masculin
+                                <input ng-change="modifCss=''" type="checkbox" ng-model="etudiant.genre">
+                                <span class="lever"></span>
+                                Féminin
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s3 offset-s1">
+                        <input ng-change="modifCss=''" class="center" ng-model="etudiant.telephone" id="telEtudiant" type="text" class="validate red-text">
+                        <label for="telEtudiant" class="red-text">Téléphone</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <input ng-change="modifCss=''" class="center" ng-model="etudiant.email" id="emailEtudiant" type="text" class="validate red-text">
+                        <label for="emailEtudiant" class="red-text">Email</label>
+                    </div>
+                    <div class="input-field col s3">
+                        <button ng-show="ajout" ng-click="valider()" class="btn waves-effect waves-light green darken-1">Ajouter</button>
+                        <button ng-show="!ajout" ng-click="enregistrerModif(etudiant)" class="btn waves-effect waves-light orange darken-1 {{modifCss}}">Enregistrer</button>
+                    </div>  
+                </div>
+            </form>
+        </div>
+    </li>
+
+    <div ng-show="allEtudiants.length==0" class="center">La liste est vide !</div>
+
+    <table class="responsive-table white">
+        <tr>
+            <th>PRENOM</th>
+            <th>NOM</th>
+            <th>GENRE</th>
+            <th>TELEPHONE</th>
+            <th>EMAIL</th>
+            <th>Actions</th>
+        </tr>
+        <tr ng-repeat="etu in allEtudiants |filter:saisie track by $index" id="tr_{{etu.idEtu}}">
+            <td class="{{etu.genre}}"> {{etu.prenom}} </td>
+            <td class="{{etu.genre}}"> {{etu.nom}}</td>
+            <td class="{{etu.genre}}"> {{etu.genre}}</td>
+            <td class="{{etu.genre}}"> {{etu.telephone}}</td>
+            <td class="{{etu.genre}}"> {{etu.email}}</td>
+            <td class="">
+                <a href="" ng-click="editEtudiant(etu)" class="no-link">
+                    <i class="small material-icons orange-text white">edit</i>
+                </a>
+                <a href="#modal1" ng-click="getIdEtu(etu.idEtu)" class="no-link modal-trigger">
+                    <i class="small material-icons blue-text white">exit_to_app</i>
+                </a>
+            </td>
+        </tr>
+    </table>
+
+
+</ul>
+
+<hr ng-show="saisie.length>1">
+<div ng-show="saisie.length>1" class="text-accent-1 center darken-1 text-center red">
+    Autres Classes
+</div>
+<hr ng-show="saisie.length>1">
+<table class="responsive-table" ng-show="saisie.length>1">
+    <tr>
+        <th>PRENOM</th>
+        <th>NOM</th>
+        <th>CLASSE</th>
+        <th></th>
+    </tr>
+    <tr ng-repeat="et in allEtudiants | filter:saisie track by $index" class="grey-text">
+        <td> {{et.prenom}} </td>
+        <td> {{et.nom}} </td>
+        <td> {{et.codeClasse}} </td>
+        <td class="center">
+            <a href="" ng-click="editEtudiant(et)" class="no-link">
+                <i class="small material-icons orange-text white">edit</i>
+            </a>
+            <a href="#modal1" ng-click="getIdEtu(etu.idEtu)" class="right no-link modal-trigger">
+                <i class="small material-icons green-text white">exit_to_app</i>
+            </a>
+        </td>
+    </tr>
+</table>

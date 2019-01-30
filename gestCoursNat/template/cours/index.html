@@ -1,0 +1,52 @@
+<!-- Modal Structure -->
+<div id="modalTitre" class="modal">
+    <div class="modal-content">
+        <h4>NOUVEAU CHAPITRE</h4>
+        <div class="row">
+            <div class="input-field col s7">
+                <input type="text" ng-model="titreChap" id="titre">
+                <label for="titre">Titre du chapitre</label>
+            </div>
+            <div class="input-field col s3">
+                <input type="text" placeholder="L1,L2,L3,M1,M2" ng-model="niveauChap" id="niveau">
+            </div>
+            <div class="input-field col s2">
+                <input type="number" min="1" ng-model="ordreChap" id="ordre">
+                <label for="ordre">Numéro</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-close btn waves-effect waves-green" ng-click="nouveauChapitre()">Valider</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="center">
+    <p class="flow-text text-accent-1 z-depth-5 grey text-rouge">Les chapitres du module
+        <code class="black-text titre">{{nomModule}}</code> </p>
+    <p class="h4">Cliquez sur :
+        <a href="#modalTitre" class="no-link modal-trigger blue-text">Nouveau Chapitre</a> pour ajouter un nouveau chapitre dans ce module</p>
+</div>
+
+<ul class="collection with-header">
+    <li ng-repeat="chapitre in chapitres" class="collection-item red-text">
+        <div>
+            <a class="no-link" href="#/module/{{nomModule}}/cours/{{chapitre.titre}}">{{chapitre.titre}}</a> &nbsp;&nbsp; - &nbsp;&nbsp;
+            <span class="black-text italic">{{chapitre.niveau}}</span> &nbsp;&nbsp; - &nbsp;&nbsp;
+            <span class="black-text italic">Chap. {{chapitre.ordre}}</span>
+            <span class="secondary-content">
+                <a href="#modalTitre" class="no-link modal-trigger">
+                    <i class="material-icons orange-text">edit</i>
+                </a>
+                &nbsp;
+                <a href="" ng-click="supprimerModule(module.nom)">
+                    <i class="material-icons red-text tooltipped" data-position="bottom" data-tooltip="I am a tooltip">remove_circle</i>
+                </a>
+            </span>
+        </div>
+    </li>
+</ul>

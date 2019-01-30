@@ -1,0 +1,13 @@
+
+<div class="center">
+        <p class="h4">l'ancien nom est <code class="flow-text red-text">{{nomModule}}</code>, entrer le nouveau nom puis appuyer sur <code class="red">Entrer</code>.</p>
+        <div class="row col s12">
+            <p class="flow-text text-accent-1 red-text z-depth-5 col s4 offset-s4">
+                <input 
+                type="text" 
+                placeholder="{{nomModule}}" 
+                ng-model="nouveauNom"
+                ng-keydown="modifierNom()">
+            </p>
+        </div>
+    </div>

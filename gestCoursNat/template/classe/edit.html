@@ -1,0 +1,11 @@
+
+<h6 class="black-text center" style="margin-top: 5%">L'ancien nom est
+        <code class="pink-text">{{nomC}}</code>, entrer le nouveau nom puis appuyez sur
+        <code class="pink white-text">Entrer</code> du clavier.
+    </br><span class="{{errorFormat}}">Respecter le format. Exemple: L1-BTS, M1-DTS</span>
+    </h6>
+    <div class="input-field flow-text text-accent-1  center z-depth-5" style="margin: 5% 30% 30% 30%">
+        <input placeholder="{{nomC}}" ng-model="newNomClasse" id="newNomClasse" 
+        ng-keyup="modifier()" type="text" class="validate pink-text" ng-href="#/classe">
+    </div>
+    
